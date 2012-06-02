@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @grade.user_id %>
+</p>
+
+<p>
+  <b>Gradelevel:</b>
+  <%= @grade.gradelevel %>
+</p>
+
+<p>
+  <b>Math:</b>
+  <%= @grade.Math %>
+</p>
+
+<p>
+  <b>Science:</b>
+  <%= @grade.Science %>
+</p>
+
+<p>
+  <b>English:</b>
+  <%= @grade.English %>
+</p>
+
+<p>
+  <b>History:</b>
+  <%= @grade.History %>
+</p>
+
+<p>
+  <b>Private:</b>
+  <%= @grade.private %>
+</p>
+
+<p>
+  <b>Slug:</b>
+  <%= @grade.slug %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_grade_path(@user,@grade) %> |
+<%= link_to 'Back', seo_show_user_path(@user) %>

@@ -1,0 +1,37 @@
+<h1>Listing grades</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Gradelevel</th>
+    <th>Math</th>
+    <th>Science</th>
+    <th>English</th>
+    <th>History</th>
+    <th>Private</th>
+    <th>Slug</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @grades.each do |grade| %>
+  <tr>
+    <td><%= grade.user_id %></td>
+    <td><%= grade.gradelevel %></td>
+    <td><%= grade.Math %></td>
+    <td><%= grade.Science %></td>
+    <td><%= grade.English %></td>
+    <td><%= grade.History %></td>
+    <td><%= grade.private %></td>
+    <td><%= grade.slug %></td>
+    <td><%= link_to 'Show', seo_show_user_post_path(@user.slug,grade) %></td>
+    <td><%= link_to 'Edit', edit_user_grade_path(@user,grade) %></td>
+    <td><%= link_to 'Destroy', grade, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Grade', new_user_grade_path %>
