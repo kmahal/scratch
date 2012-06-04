@@ -1,4 +1,18 @@
 Scratch::Application.routes.draw do
+  resources :oauth_clients
+
+  match '/oauth/test_request',  :to => 'oauth#test_request',  :as => :test_request
+
+  match '/oauth/token',         :to => 'oauth#token',         :as => :token
+
+  match '/oauth/access_token',  :to => 'oauth#access_token',  :as => :access_token
+
+  match '/oauth/request_token', :to => 'oauth#request_token', :as => :request_token
+
+  match '/oauth/authorize',     :to => 'oauth#authorize',     :as => :authorize
+
+  match '/oauth',               :to => 'oauth#index',         :as => :oauth
+
   get "home/index"
 
   get "home/about"
@@ -11,12 +25,12 @@ Scratch::Application.routes.draw do
 
   resources :grades
 
+ devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
 
   resources :users do
       resources :grades
   end
   
-  devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
   
   match ':user_id' => 'grades#index', :as => 'seo_show_user'
   match ':user_id/:id' => 'grades#show', :as => 'seo_show_user_grade'
